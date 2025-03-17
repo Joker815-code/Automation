@@ -63,7 +63,7 @@ Ensure that chromedriver.exe is properly configured in the system PATH or explic
 If the browser closes too quickly, remove driver.quit(); for debugging.
 
 Author
-Your Name
+Pavlov Mukherjee
 
 Contact: pavlovmukherjee4@gmail.com
 
