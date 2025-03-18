@@ -31,9 +31,29 @@ public class FirstTestCase {
             } catch (Exception e) {
                 System.out.println("Login pop-up not found, continuing...");
             }
+            
+
+            // Click on Login button
+            WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//a[contains(text(),'Login')]")));
+            loginButton.click();
+            
+            // Switch to login modal if needed
+            WebElement phoneInput = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("/html/body/div/div/div[3]/div/div[2]/div/form/div[1]/input")));
+            phoneInput.sendKeys("8777632300");
+
+            // Click Continue
+            driver.findElement(By.xpath("//button[contains(text(),'Request OTP')]")).click();
+
+            // Wait for OTP verification page
+            //WebElement otpInput = wait.until(ExpectedConditions.visibilityOfElementLocated(
+            //    By.xpath("//input[@type='text' and @maxlength='6']")));
+            
+            //System.out.println("Successfully reached OTP page!");
 
             // Search for "iPhone 15"
-            WebElement searchBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("q")));
+            WebElement searchBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div[1]/div/div/div/div/div[1]/div/div/div/div[1]/div[1]/header/div[1]/div[2]/form/div/div/input")));
             searchBox.sendKeys("iPhone 15");
             searchBox.sendKeys(Keys.ENTER);
 
@@ -61,6 +81,8 @@ public class FirstTestCase {
             WebElement paymentPage = wait.until(ExpectedConditions.visibilityOfElementLocated(
                     By.xpath("//div[contains(text(),'Payment Options')]")));
             System.out.println("Reached payment page successfully!");
+            
+            
 
         } catch (Exception e) {
             e.printStackTrace();
